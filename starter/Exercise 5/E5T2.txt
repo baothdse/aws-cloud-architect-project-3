@@ -1,0 +1,26 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+- AWS CloudFormation Guard is an open-source, general-purpose, policy-as-code evaluation tool.
+
+### Example vulnerability
+- Expose the use of insecure security group rules.
+- Restrict policy with full access
+
+##Scan AMI’s or containers for OS vulnerabilities
+- Trivy - Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+
+### Example vulnerability
+- Common vulnerabilities and exposures
+- Misconfigurations
+- Bleach of secret key
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+- AWS Config
+
+### Example vulnerability
+- Identify unused Resources
+- Identify Insecure Network Configuration
+- Detect Unencrypted Storage
+
+

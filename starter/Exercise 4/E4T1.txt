@@ -1,0 +1,13 @@
+
+
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+- Update the inboud rule of Application instance's security group to prevent connection from all IPs. Only allow connection
+from the Application Load Balancer.
+- Using AWS WAF to prevents brute force from the internet.
+- Enable MFA to our instance.
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials
+# were compromised how could we have prevented access to sensitive data.
+- Using IAM Policies to restrict access to specific bucket. Only allows access from specific roles or users.
+- Define rules in bucket policy to allows access from specic IP addresses or IAM roles.
+- Use KMS to manage and rotate encryption keys.

@@ -1,0 +1,15 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+The CIDR of security groups (WebAppSG, AppLoadBalancerSG and AttackInstanceSG) should not be setting as 0.0.0.0/0
+to prevent connection from unwanted sources. We should indicate specific source IP Address or Security Group in our rule.
+
+For example: we can specify "Source" by Security Group ID of AppLoadBalancerSG and "Port Range" by 5000 for. This allows
+our Web service instance receives connection only from the instance, which is attached "AppLoadBalancerSG" (in this case,
+it's our Application Load Balancer)
+
+
+# Poor practice 2
+As we can see, both Web App Instance and Attack Instance are attached an Instance Role, which allows instance to do all
+action to S3 Service. We should follow least priviledge principle by limit the action that we added to policy. In this
+case, we just only need to grant Get action on FreeRecipe buckit in InstanceRolePolicy.

@@ -1,0 +1,21 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+1. AWS Config
+    - Both instances are attached public IP address, we should disassociate these Elastic IP Address to avoid potential
+    security risk and cost increasing.
+    - We should change HTTTP to HTTPS
+    - Amazon Elastic Block Store (EBS) encryption is not enabled by default => turn on encryption for EBS.
+    - CloudFormation stacks do not send event notifications to an SNS topic => turn on notification and define topic
+    for sending event notification to SNS
+    - "Access log" attribute of Application Load Balancer is turned off => Turn on and define bucket for logging.
+    - "Deletion Protection" of ALB is turned off => turn on.
+
+2. AWS Security Hub
+    - Hardware MFA should be enabled for the root user => turn on MFA for root user.
+    - Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port xxxxx => should allow ingress from
+    specific IP address
+    - VPC default security groups should not allow inbound or outbound traffic => restrict all traffic in default security group
+    - IAM password does not met the policies => follow AWS IAM password policies to reset IAM password
+    - VPC flow logging should be enabled in all VPCs => turn all VPV flow log
